@@ -6,7 +6,7 @@ export default function Pros() {
     <section className="  md:px-laptop flex px-mobile lg:px-desktop-m xl:px-desktop flex-col w-full bg-secondary py-30 items-center gap-20">
       <div className="flex flex-col text-center lg:w-3xl text-primary">
         <h3>
-          Motus & Manus (latin for "bevægelse og hånd") tilbyder skræddersyede
+          Motus&Manus (latin for "bevægelse og hånd") tilbyder skræddersyede
           sundhedsløsninger til virksomheder, der prioriterer deres
           medarbejderes trivsel og produktivitet.
         </h3>

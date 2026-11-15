@@ -1,12 +1,12 @@
 "use client";
 import React from "react";
-import {useState} from "react";
+import { useState } from "react";
 import Image from "next/image";
 import CTAButton from "./CtaBtn";
 import Link from "next/link";
-import {RxCross2} from "react-icons/rx";
-import {RxHamburgerMenu} from "react-icons/rx";
-import {AnimatePresence, motion} from "framer-motion";
+import { RxCross2 } from "react-icons/rx";
+import { RxHamburgerMenu } from "react-icons/rx";
+import { AnimatePresence, motion } from "framer-motion";
 
 export default function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -22,7 +22,7 @@ export default function Header() {
           className="w-12 h-12 lg:w-12 lg:h-12"
         />
         <span className="text-secondary  text-base xl:text-xl">
-          Motus og Manus
+          Motus&Manus
         </span>
       </Link>
 
@@ -79,8 +79,8 @@ export default function Header() {
       >
         <motion.div
           initial={false}
-          animate={{rotate: menuOpen ? 90 : 0}}
-          transition={{duration: 0.3}}
+          animate={{ rotate: menuOpen ? 90 : 0 }}
+          transition={{ duration: 0.3 }}
         >
           {menuOpen ? <RxCross2 size={28} /> : <RxHamburgerMenu size={28} />}
         </motion.div>
@@ -90,10 +90,10 @@ export default function Header() {
         {menuOpen && (
           <motion.div
             key="mobile-menu"
-            initial={{opacity: 0, y: -20}}
-            animate={{opacity: 1, y: 0}}
-            exit={{opacity: 0, y: -20}}
-            transition={{duration: 0.3}}
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -20 }}
+            transition={{ duration: 0.3 }}
             className="z-40 fixed inset-0 bg-primary py-10 text-secondary flex flex-col gap-6 lg:hidden"
           >
             <div className=" z-50 fixed inset-0 bg-primary py-10 text-secondary flex flex-col px-mobile items-start mt-10 gap-6 lg:hidden">

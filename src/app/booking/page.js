@@ -1,6 +1,6 @@
 "use client";
 import Image from "next/image";
-import React, {useState} from "react";
+import React, { useState } from "react";
 import BookingForm from "@/components/Booking/BookingForm";
 import StepIndicator from "@/components/StepIndicator";
 
@@ -23,9 +23,9 @@ export default function BookingPage() {
           <div className=" inset px-mobile lg:px-desktop absolute z-20 inset-0 flex flex-col justify-center items-center text-secondary text-center">
             <h1>Book en indledende samtale</h1>
             <p className="text-pretty ">
-              Her kan du booke en tid til en indledende samtale med Motus &
-              Manus. Samtalen er uforpligtende og giver dig mulighed for at høre
-              mere om, hvordan en skræddersyet sundhedsordning kan se ud i din
+              Her kan du booke en tid til en indledende samtale med Motus&Manus.
+              Samtalen er uforpligtende og giver dig mulighed for at høre mere
+              om, hvordan en skræddersyet sundhedsordning kan se ud i din
               virksomhed.
             </p>
           </div>
