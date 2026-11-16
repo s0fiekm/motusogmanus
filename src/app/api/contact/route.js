@@ -1,30 +1,60 @@
-import {supabase} from "@/lib/supabaseClient";
+import { Resend } from "resend";
 
 export async function POST(req) {
-  const body = await req.json();
-  const {name, email, phone, company_name, employees, interest, message} = body;
+  try {
+    const body = await req.json();
 
-  const {error} = await supabase.from("contact_formular").insert([
-    {
-      name,
-      email,
-      phone,
-      company_name,
-      employees,
-      interest,
-      message,
-    },
-  ]);
+    const { name, email, phone, company_name, employees, interest, message } =
+      body;
 
-  if (error) {
-    return new Response(JSON.stringify({error: error.message}), {
-      status: 500,
-      headers: {"Content-Type": "application/json"},
+    if (!name || !email || !message) {
+      return Response.json(
+        { error: "Udfyld navn, e-mail og besked." },
+        { status: 400 },
+      );
+    }
+
+    const resend = new Resend(process.env.RESEND_API_KEY);
+
+    const { error } = await resend.emails.send({
+      from: process.env.RESEND_FROM_EMAIL,
+      to: process.env.CONTACT_EMAIL,
+      replyTo: email,
+      subject: `Ny henvendelse fra ${name}`,
+      text: `
+Ny henvendelse fra Motus&Manus
+
+Navn: ${name}
+E-mail: ${email}
+Telefon: ${phone || "Ikke oplyst"}
+Virksomhed: ${company_name || "Ikke oplyst"}
+Antal medarbejdere: ${employees || "Ikke oplyst"}
+Interesse: ${interest || "Ikke oplyst"}
+
+Besked:
+${message}
+      `,
     });
-  }
 
-  return new Response(JSON.stringify({message: "Besked sendt!"}), {
-    status: 200,
-    headers: {"Content-Type": "application/json"},
-  });
+    if (error) {
+      console.error("Resend error:", error);
+
+      return Response.json(
+        { error: "Kunne ikke sende beskeden." },
+        { status: 500 },
+      );
+    }
+
+    return Response.json(
+      { success: true, message: "Beskeden er sendt!" },
+      { status: 200 },
+    );
+  } catch (error) {
+    console.error("Contact API error:", error);
+
+    return Response.json(
+      { error: "Der opstod en serverfejl." },
+      { status: 500 },
+    );
+  }
 }

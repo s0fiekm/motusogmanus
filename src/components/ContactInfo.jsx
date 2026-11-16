@@ -37,12 +37,12 @@ export default function ContactInfo() {
                 href="mailto:email@mail.dk"
                 className="underline hover:opacity-80"
               >
-                motusetmanus@gmail.com
+                motusmanus@gmail.com
               </a>
             </li>
           </ul>
           <ul>
-            <li>Motus og Manus</li>
+            <li>Motus&Manus</li>
             <li>CVR: 38774441 </li>
           </ul>
         </div>
