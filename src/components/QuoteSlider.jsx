@@ -1,8 +1,8 @@
 "use client";
-import React, {useEffect, useState} from "react";
-import {FaArrowLeftLong} from "react-icons/fa6";
-import {FaArrowRight} from "react-icons/fa6";
-import {ImQuotesLeft} from "react-icons/im";
+import React, { useEffect, useState } from "react";
+import { FaArrowLeftLong } from "react-icons/fa6";
+import { FaArrowRight } from "react-icons/fa6";
+import { ImQuotesLeft } from "react-icons/im";
 
 const quotes = [
   {
@@ -29,7 +29,7 @@ export default function QuoteSlider() {
   useEffect(() => {
     const timeout = setTimeout(() => {
       setCurrentIndex((prevIndex) =>
-        prevIndex === quotes.length - 1 ? 0 : prevIndex + 1
+        prevIndex === quotes.length - 1 ? 0 : prevIndex + 1,
       );
     }, 6000);
 
@@ -38,13 +38,13 @@ export default function QuoteSlider() {
 
   const handleNext = () => {
     setCurrentIndex((prevIndex) =>
-      prevIndex === quotes.length - 1 ? 0 : prevIndex + 1
+      prevIndex === quotes.length - 1 ? 0 : prevIndex + 1,
     );
   };
 
   const handlePrev = () => {
     setCurrentIndex((prevIndex) =>
-      prevIndex === 0 ? quotes.length - 1 : prevIndex - 1
+      prevIndex === 0 ? quotes.length - 1 : prevIndex - 1,
     );
   };
   return (
@@ -56,8 +56,8 @@ export default function QuoteSlider() {
             arbejdsmiljøet.
           </h1>
           <p>
-            Her er hvad tidligere kunder fortæller om deres oplevelse med Motus
-            & Manus.
+            Her er hvad tidligere kunder fortæller om deres oplevelse med
+            Motus&Manus.
           </p>
         </div>
         <div className="flex flex-row gap-4 ">

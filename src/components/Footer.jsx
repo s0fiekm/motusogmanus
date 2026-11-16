@@ -9,11 +9,11 @@ export default function Footer() {
         <div className="">
           <p>Mikkel Kjær Regnér</p>
           <p>Fysioterapeut og Manuel Terapeut</p>
-          <p>Motus og Manus - Bevægelse og Hånd</p>
+          <p>Motus&Manus - Bevægelse og Hånd</p>
         </div>
         <div className="flex flex-col gap-2 ">
           <span>Telefon: +45 00 00 00 00 </span>
-          <span>Email: kontakt@motusogmanus.dk</span>
+          <span>Email: kontakt@motusmanus.dk</span>
           <span>CVR: 12345678</span>
         </div>
         <div className=" flex flex-col gap-2">
